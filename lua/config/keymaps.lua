@@ -20,12 +20,18 @@ vim.keymap.set(
 )
 
 -- Execute codes in interactive mode
-vim.keymap.set("n", "<leader>rl", "yy<C-w>wpi<CR><C-\\><C-n><C-w>wj")
-vim.keymap.set("n", "<leader>rr", "yy<C-w>wpi<CR><C-\\><C-n><C-w>w")
-vim.keymap.set("n", "<leader>rh", "viwy<C-w>whead(pi)<CR><C-\\><C-n><C-w>w")
-vim.keymap.set("n", "<leader>rk", "V}y<C-w>wpi<CR><C-\\><C-n><C-w>w}")
-vim.keymap.set("n", "<leader>ri", "{V}y<C-w>wpi<CR><C-\\><C-n><C-w>w}")
-vim.keymap.set("v", "<leader>rb", "y<C-w>wpi<CR><C-\\><C-n><C-w>w")
+vim.keymap.set("n", "<leader>rl", "yy<C-w>wpi<CR><C-\\><C-n><C-w>wj", { desc = "run line and go to the next line" })
+vim.keymap.set("n", "<leader>rr", "yy<C-w>wpi<CR><C-\\><C-n><C-w>w", { desc = "run line and stay in line" })
+vim.keymap.set("n", "<leader>rh", "viwy<C-w>whead(pi)<CR><C-\\><C-n><C-w>w", { desc = "run head function in variable" })
+vim.keymap.set("n", "<leader>rk", "V}y<C-w>wpi<CR><C-\\><C-n><C-w>w}", { desc = "run next block of code" })
+vim.keymap.set("n", "<leader>ri", "{V}y<C-w>wpi<CR><C-\\><C-n><C-w>w}", { desc = "run current block of code" })
+vim.keymap.set("v", "<leader>rb", "y<C-w>wpi<CR><C-\\><C-n><C-w>w", { desc = "run selection" })
+vim.keymap.set(
+  "n",
+  "<leader>rf",
+  ":lua vim.fn.expand('%p')<CR>o<ESC>d0i<C-r>%<ESC><C-v>0d<C-w>wi%run  <C-\\><C-n>pi<CR><C-\\><C-n>G<C-w>wdd"
+)
+-- <C-w>wpi<CR><C-\\><C-n><C-w>w", { desc = "run the whole file" })
 --
 
 -- R interactive
